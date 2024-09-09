@@ -92,20 +92,20 @@ Note that Sound Blaster hardware has an unusual filter that is fully open at 8,0
 
 You should hear a white noise wave filtered using a low-pass filter at 4,000 Hz while increasing the filter resonance (Q) using the following values:
 
-| Filter Q, dB |
-| ------------ |
-| 0            |
-| 5            |
-| 10           |
-| 15           |
-| 20           |
-| 25           |
-| 30           |
-| 35           |
-| 40           |
-| 50           |
-| 70           |
-| 96           |
+| Filter Q (dB) |
+| ------------- |
+| 0             |
+| 5             |
+| 10            |
+| 15            |
+| 20            |
+| 25            |
+| 30            |
+| 35            |
+| 40            |
+| 50            |
+| 70            |
+| 96            |
 
 The Sound Blaster hardware filter resonance appears to be capped to a maximum of 20 dB.
 
