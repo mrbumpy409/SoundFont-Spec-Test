@@ -45,7 +45,7 @@ You should hear the volume oscillating at a moderate speed (4 Hz).
 
 * **Test A:** Velocity = 127. Since there is no attenuation to the sound at instrument or preset level, the sound cannot be amplified. Therefore, the LFO will only cause a reduction in volume, but never a boost. In a waveform view, the volume peaks will appear to be "chopped off". See the notes for [test 12](#test-12-negative-attenuation-amount) below.
 
-* **Test B:** Velocity = 100. Since there is attenuation to the sound due to the lower note velocity, the LFO can both amplify and attenuate the sound. In a waveform view, the volume oscillation should appear as a triangle wave.
+* **Test B:** Velocity = 90. Since there is attenuation to the sound due to the lower note velocity, the LFO can both amplify and attenuate the sound. In a waveform view, the volume oscillation should appear as a triangle wave.
 
 ### Test #6: Vibrato LFO
 
