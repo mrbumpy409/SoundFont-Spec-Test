@@ -7,7 +7,7 @@ A specification-compliance test for SoundFont synthesizers.
 
 The following tests will check to see if your SoundFont player is compatible with the SoundFont 2.01 and/or 2.04 specification, using the hardware implementation found in the Sound Blaster Audigy 2 ZS as a reference point. This test will not cover every possible implementation flaw, but should give a decent overview of a SoundFont player's compatibility with the specification.
 
-To run the test, load the accompanying SoundFont bank into your SoundFont synth as bank 0, and then play the MIDI file. Use `Audigy2 ZS.ogg` in the `recordings` folder as a reference for how these tests should sound. Note that for some tests, FluidSynth provides a more ideal rendering, especially when it comes to the filter behavior.
+To run the test, load the accompanying SoundFont bank into your SoundFont synth as bank 0, and then play the MIDI file. Use `Audigy2 ZS, custom fx.ogg` in the `recordings` folder as a reference for how these tests should sound. Note that for some tests, FluidSynth provides a more ideal rendering, especially when it comes to the filter behavior.
 
 ## Tests
 
@@ -61,49 +61,53 @@ You should hear three tones, all at the same pitch.
 
 ### Test #9: Initial filter cutoff
 
-You should hear a white noise wave filtered using a low-pass filter at each of the following values (Hz):
+You should hear a white noise wave filtered using a low-pass filter at each of the following values:
 
-    20
-    50
-    100
-    200
-    500
-    1,000
-    1,500
-    2,000
-    3,000
-    4,000
-    5,000
-    6,000
-    7,000
-    8,000
-    9,000
-    10,000
-    12,000
-    15,000
-    17,500
-    20,000
+| Cutoff frequency (Hz) |
+| ----------------------|
+| 20                    |
+| 50                    |
+| 100                   |
+| 200                   |
+| 500                   |
+| 1,000                 |
+| 1,500                 |
+| 2,000                 |
+| 3,000                 |
+| 4,000                 |
+| 5,000                 |
+| 6,000                 |
+| 7,000                 |
+| 8,000                 |
+| 9,000                 |
+| 10,000                |
+| 12,000                |
+| 15,000                |
+| 17,500                |
+| 20,000                |
 
 Note that Sound Blaster hardware has an unusual filter that is fully open at 8,000 Hz. FluidSynth implements a proper 2-pole lowpass filter. [See my video here](https://www.youtube.com/watch?v=Qid15khj68k) on this topic.
 
 ### Test #10: Filter resonance
 
-You should hear a white noise wave filtered using a low-pass filter at 4,000 Hz while increasing the filter resonance using the following values (dB):
+You should hear a white noise wave filtered using a low-pass filter at 4,000 Hz while increasing the filter resonance (Q) using the following values:
 
-    0
-    5
-    10
-    15
-    20
-    25
-    30
-    35
-    40
-    50
-    70
-    96
+| Filter Q, dB |
+| ------------ |
+| 0            |
+| 5            |
+| 10           |
+| 15           |
+| 20           |
+| 25           |
+| 30           |
+| 35           |
+| 40           |
+| 50           |
+| 70           |
+| 96           |
 
-The Sound Blaster hardware filter resonance is capped to a maximum TODO.
+The Sound Blaster hardware filter resonance appears to be capped to a maximum of 20 dB.
 
 ### Test #11: Attenuation amount
 
