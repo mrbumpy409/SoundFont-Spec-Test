@@ -41,7 +41,7 @@ You should hear five tones at the same pitch, each one increasing in duration of
 
 ### Test #5: Modulation LFO
 
-You should hear the volume oscillating at a moderate speed (4 Hz).
+You should hear the volume oscillating at a moderate speed (4 Hz). The LFO depth value is set to 6 dB, which means the sample volume should oscillate between +6 dB and -6 dB.
 
 * **Test A:** Velocity = 127. Since there is no attenuation to the sound at instrument or preset level, the sound cannot be amplified. Therefore, the LFO will only cause a reduction in volume, but never a boost. In a waveform view, the volume peaks will appear to be "chopped off". See the notes for [test 12](#test-12-negative-attenuation-amount) below.
 
