@@ -190,8 +190,8 @@ You will hear either "supported" or "not supported".
 ### Test #18: Chorus
 
 * **Test A:** Instrument-level chorus = 0%, 33.3%, 66.6% and 100%.
-* **Test B:** MIDI CC 91 chorus = 0% (0), 33.3% (42), 66.6% (85) and 100% (127).
-* **Test C:** Both instrument-level and MIDI CC91 chorus = 0%, 33.3%, 66.6% and 100%.
+* **Test B:** MIDI CC 93 chorus = 0% (0), 33.3% (42), 66.6% (85) and 100% (127).
+* **Test C:** Both instrument-level and MIDI CC93 chorus = 0%, 33.3%, 66.6% and 100%.
 
 ### Test #19: Sample interpolation quality
 
