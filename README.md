@@ -5,7 +5,7 @@ A specification-compliance test for SoundFont synthesizers.
 
 ## Overview
 
-The following tests will check to see if your SoundFont player is compatible with the SoundFont 2.01 and/or 2.04 specification, using the hardware implementation found in the Sound Blaster Audigy 2 ZS as a reference point. This test will not cover every possible implementation flaw, but should give a decent overview of a SoundFont player's compatibility with the specification.
+The following tests will check to see if your SoundFont player is compatible with the SoundFont [2.01](https://github.com/davy7125/soundfont-standard-v3/blob/master/sfspec21.pdf) and/or [2.04](https://github.com/davy7125/soundfont-standard-v3/blob/master/sfspec24.pdf) specification, using the hardware implementation found in the Sound Blaster Audigy 2 ZS as a reference point. This test will not cover every possible implementation flaw, but should give a decent overview of a SoundFont player's compatibility with the specification.
 
 To run the test, load the accompanying SoundFont bank into your SoundFont synth as bank 0, and then play the MIDI file. Use `Audigy2 ZS, custom fx.ogg` in the `recordings` folder as a reference for how these tests should sound. Note that for some tests, FluidSynth provides a more ideal rendering, especially when it comes to the filter behavior.
 
@@ -53,7 +53,7 @@ You should hear the pitch oscillating at a moderate speed (4 Hz).
 
 ### Test #7: Mod wheel to LFO
 
-Which LFO is activated via mod wheel? It should be the vib. LFO. In this test, if the vib LFO is properly being activated, there should be a mild vibrato. However, if it is activating the modulation LFO instead, then the vibrato will be very fast.
+Which LFO is activated via mod wheel? It should be the vib. LFO. In this test, if the vib LFO is properly being activated, there should be a mild vibrato (4 Hz). However, if it is activating the modulation LFO instead, then the vibrato will be very fast.
 
 ### Test #8: Scale Tune / Root Key
 
