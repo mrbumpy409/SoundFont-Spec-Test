@@ -1,7 +1,7 @@
 # SoundFont Spec Implementation Test v3.0
 A specification-compliance test for SoundFont synthesizers.
 
-*Updated 9/8/24 by S. Christian Collins*
+*Updated 11/24/24 by S. Christian Collins*
 
 ## Overview
 
@@ -53,7 +53,9 @@ You should hear the pitch oscillating at a moderate speed (4 Hz).
 
 ### Test #7: Mod wheel to LFO
 
-Which LFO is activated via mod wheel? It should be the vib. LFO. In this test, if the vib LFO is properly being activated, there should be a mild vibrato (4 Hz). However, if it is activating the modulation LFO instead, then the vibrato will be very fast.
+Which LFO is activated by the mod wheel (CC1)? According to the SoundFont 2.01 and 2.04 specs, the mod wheel should add 50 cents to the vibrato LFO (LFO2), resulting in a moderate-speed vibrato (4 Hz) in this test.
+
+SoundFont 2.0 and earlier devices such as the Sound Blaster Live! or AWE32 had the mod wheel activating the modulation LFO (LFO1) instead, which will result in a very fast vibrato (8.176 Hz) in this test.
 
 ### Test #8: Scale Tune / Root Key
 
@@ -161,9 +163,9 @@ Because of this inconsistent behavior and the different way each version of this
 
 The result should be a smooth progression over a wide frequency range for the low pass filter, with noticeably more filtering at low velocities than the default velocity-to-FC modulator.
 
-#### C: old SoundFont 2.0 behavior (SB Live!)
+#### C: old SoundFont 2.0 behavior (SB AWE32/64 and Live!)
 
-On the Sound Blaster Live!, instruments with attack 6 ms or greater enable filtering at lower velocities. This test attempts to see if this behavior is emulated. If **Test A** does not result in a filtered sound but **Test C** does, then this old behavior is emulated. If **Test A** sounds filtered, then ignore the results of this test.
+On the Sound Blaster Live!, a volume envelope attack of 8 ms or greater enables a velocity-to-FC modulator that reduces the filter cutoff at lower velocities. The same is true on AWE32/64 with volume envelope attack of 7 ms or greater. This test attempts to see if this behavior is emulated. If **Test A** does not result in a progressively filtered sound but **Test C** does, then this old behavior is emulated. If **Test A** sounds filtered, then ignore the results of this test.
 
 #### D: 2.01 spec default modulator deleted from instrument
 
@@ -179,7 +181,7 @@ You should hear a smooth opening and closing of the filter, which is being contr
 
 ### Test #16: Sample Offset
 
-You will hear either "supported" or "not supported".
+You will hear either "supported" or "not supported". Strangely, the Sound Blaster Live! does not support sample offset, even though the AWE32/64 does.
 
 ### Test #17: Reverb
 
