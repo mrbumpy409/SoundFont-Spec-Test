@@ -3,6 +3,8 @@ A specification-compliance test for SoundFont synthesizers.
 
 *Updated 11/24/24 by S. Christian Collins*
 
+_**HELP WANTED!** If someone could send me audio of this test recorded on a Sound Blaster AWE32/64 and/or Sound Blaster Live! with reverb and chorus enabled, I would be much obliged. You can upload your recording to [this bug report](https://github.com/mrbumpy409/SoundFont-Spec-Test/issues/2)._
+
 ## Overview
 
 The following tests will check to see if your SoundFont player is compatible with the SoundFont [2.01](https://github.com/davy7125/soundfont-standard-v3/blob/master/sfspec21.pdf) and/or [2.04](https://github.com/davy7125/soundfont-standard-v3/blob/master/sfspec24.pdf) specification, using the hardware implementation found in the Sound Blaster Audigy 2 ZS as a reference point. This test will not cover every possible implementation flaw, but should give a decent overview of a SoundFont player's compatibility with the specification.
