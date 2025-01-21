@@ -1,9 +1,9 @@
 # SoundFont Spec Implementation Test v3.0
 A specification-compliance test for SoundFont synthesizers.
 
-*Updated 11/24/24 by S. Christian Collins*
+*Updated 1/20/25 by S. Christian Collins*
 
-_**HELP WANTED!** If someone could send me audio of this test recorded on a Sound Blaster AWE32/64 and/or Sound Blaster Live! with reverb and chorus enabled, I would be much obliged. You can upload your recording to [this bug report](https://github.com/mrbumpy409/SoundFont-Spec-Test/issues/2)._
+_**HELP WANTED!** If someone could send me audio of this test recorded on a Sound Blaster Live! with reverb and chorus enabled, I would be much obliged. You can upload your recording to [this bug report](https://github.com/mrbumpy409/SoundFont-Spec-Test/issues/2)._
 
 ## Overview
 
