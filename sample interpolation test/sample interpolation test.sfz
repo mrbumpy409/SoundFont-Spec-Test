@@ -1,0 +1,32 @@
+<control>
+default_path=samples/
+
+<master>
+//sample_quality=4
+ampeg_release=0.1 volume=-6
+
+// Test #1
+<region> sample=Wave_Sine_093.wav  pitch_keycenter=93  lokey=24  hikey=24
+ampeg_attack=0.1
+eg01_pitch=11000
+eg01_time1=0  eg01_level1=1
+eg01_time2=30  eg01_level2=0  eg01_sustain=2
+
+// Test #2
+<region> sample=FM EP_84_2.wav  lokey=f6  hikey=a6  pitch_keycenter=84
+
+// Test #3
+<group>
+ampeg_sustain=0
+
+<region> sample=e-e.wav  lokey=d#3  hikey=g3  pitch_keycenter=52
+ampeg_decay=40
+<region> sample=a-a.wav  lokey=g#3  hikey=c4  pitch_keycenter=57
+ampeg_decay=40
+<region> sample=d-d.wav  lokey=c#4  hikey=f4  pitch_keycenter=62
+ampeg_decay=50
+
+// Test #4
+<group>
+
+<region> sample=Timpani Soft.wav  lokey=d1  hikey=d3  pitch_keycenter=50  tune=44
