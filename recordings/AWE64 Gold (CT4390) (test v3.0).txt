@@ -1,0 +1,9 @@
+AWE64 Gold CT4390 RCA line-out to RME Babyface Pro FS.
+
+AWE Control Panel Effect tab:
+
+Reverberation: Hall 1
+Chorusing:     Chorus 1
+Treble & Bass level sliders at middle position (0dB)
+
+Falcosoft SoundFont Midi Player 6.4 used for playback

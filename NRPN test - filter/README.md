@@ -53,7 +53,7 @@ To emulate the Audigy's filter cutoff NRPN for a voice:
 1. Override the voice's filter cutoff, setting it to: **100 Hz**
 2. Set the filter cutoff NRPN to modulate filter cutoff based on the following modulator:
    * Curve: **unipolar linear positive**
-   * Amount: **7646** (timecents)
+   * Amount: **7646** (cents)
    * Destination: **filter cutoff**
 
 To emulate the Audigy's filter Q NRPN for a voice:

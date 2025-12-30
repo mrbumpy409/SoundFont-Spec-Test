@@ -1,7 +1,7 @@
-# SoundFont Spec Implementation Test v3.0
+# SoundFont Spec Implementation Test v3.1
 A specification-compliance test for SoundFont synthesizers.
 
-*Updated 1/20/25 by S. Christian Collins*
+*Updated 12/29/25 by S. Christian Collins*
 
 _**HELP WANTED!** If someone could send me audio of this test recorded on a Sound Blaster Live! with reverb and chorus enabled, I would be much obliged. You can upload your recording to [this bug report](https://github.com/mrbumpy409/SoundFont-Spec-Test/issues/2)._
 
@@ -15,7 +15,7 @@ To run the test, load the accompanying SoundFont bank into your SoundFont synth 
 
 ### Test #1: Volume envelope
 
-This test uses all six envelope stages, each lasting exactly 1 second. The stages are delay, attack, hold, decay, sustain, and release. The attack should be a convex curve, while the remaining envelope stages should all be linear. Note that viewing these stages on a waveform view in dB, the attack will appear linear, and the other phases will appear concave. The test starts with a click. You should hear the note's volume change according to the following envelope shape:
+This test uses all six envelope stages, each lasting exactly 1 second. The stages are *delay*, *attack*, *hold*, *decay*, *sustain*, and *release*. The attack should be a convex curve, while the remaining envelope stages should all be linear. Note that viewing these stages on a waveform view in dB, the attack will appear linear, and the other phases will appear concave. The test starts with a click. You should hear the note's volume change according to the following envelope shape:
 
             ____
            /    \
@@ -25,7 +25,7 @@ This test uses all six envelope stages, each lasting exactly 1 second. The stage
 
 ### Test #2: Modulation envelope
 
-This test uses all six envelope stages, each lasting exactly 1 second. The stages are delay, attack, hold, decay, sustain, and release. The attack should be a convex curve, while the remaining envelope stages should all be linear. You should hear the note's pitch change according to the following envelope shape:
+This test uses all six envelope stages, each lasting exactly 1 second. The stages are *delay*, *attack*, *hold*, *decay*, *sustain*, and *release*. The attack should be a convex curve, while the remaining envelope stages should all be linear. You should hear the note's pitch change according to the following envelope shape:
 
             ____
            /    \
@@ -43,11 +43,11 @@ You should hear five tones at the same pitch, each one increasing in duration of
 
 ### Test #5: Modulation LFO
 
-You should hear the volume oscillating at a moderate speed (4 Hz). The LFO depth value is set to 6 dB, which means the sample volume should oscillate between +6 dB and -6 dB. In a waveform view, the volume oscillation should appear as a triangle wave.
+You should hear the volume oscillating at a moderate speed (4 Hz). The LFO depth value is set to **6 dB**, which means the sample volume should oscillate between +6 dB and -6 dB. In a waveform view, the volume oscillation should appear as a triangle wave.
 
-* **Test A:** Velocity = 127. On Sound Blaster hardware with no attenuation to the sound at instrument or preset level, the sound cannot be further amplified. Therefore, the LFO will only cause a reduction in volume, but never a boost. In a waveform view, the volume peaks will appear to be "chopped off". See the notes for [test 12](#test-12-negative-attenuation-amount) below. This volume limitation does not exist in FluidSynth or BASSMIDI.
+* **Test A:** Velocity = **127**. On Sound Blaster hardware with no attenuation to the sound at instrument or preset level, the sound cannot be further amplified. Therefore, the LFO will only cause a reduction in volume, but never a boost. In a waveform view, the volume peaks will appear to be "chopped off". See the notes for [test 12](#test-12-negative-attenuation-amount) below. This volume limitation does not exist in FluidSynth or BASSMIDI.
 
-* **Test B:** Velocity = 90. Since there is attenuation to the sound due to the lower note velocity, the LFO should be able to both amplify and attenuate the sound regardless of SoundFont synth used.
+* **Test B:** Velocity = **90**. Since there is attenuation to the sound due to the lower note velocity, the LFO should be able to both amplify and attenuate the sound regardless of SoundFont synth used.
 
 ### Test #6: Vibrato LFO
 
@@ -133,15 +133,15 @@ When measured, the volume decrease between each tone should be exactly 2 dB.
 
 ### Test #12: Negative attenuation amount
 
-The same test as #11 is repeated, but with preset attenuation set to -12 dB. All tones should play at the same volume.
+Same as **Test #11**, but with preset attenuation set to **-12 dB**. All tones should play at the same volume.
 
 On Sound Blaster hardware, a playing sample (or "voice") can either be at full volume (0 dB) or attenuated below that level. No modulator, LFO or attenuation parameter value can raise the sample playback volume above this 0 dB limit. It is possible to set negative attenuation values at the preset level. However, if a voice has not been attenuated by a modulator (e.g., velocity, CC7, CC11), envelope, or by the attenuation value at the instrument level, then it cannot be boosted. In other words, a negative attenuation value in the preset can only boost the voice volume up to 0 dB, but never beyond.
 
 ### Test #13: Velocity to attenuation curve
 
-Measured at the following velocities: 127, 111, 95, 79, 63, 47, 31, 15.
+Measured at the following velocities: **127**, **111**, **95**, **79**, **63**, **47**, **31**, **15**.
 
-* **Test A:** default (should be 96 dB concave. The difference between 127 & 111 should be 2.34 dB)
+* **Test A:** default (should be 96 dB concave. The difference between velocity **127** and **111** should be **2.34 dB**)
 * **Test B:** 144 dB concave
 * **Test C:** 48 dB concave
 * **Test D:** 96 dB linear
@@ -149,13 +149,13 @@ Measured at the following velocities: 127, 111, 95, 79, 63, 47, 31, 15.
 
 ### Test #14: Velocity to initial filter cutoff curve
 
-All tones should be the same volume, assuming test #13 is passed. Measured at the following velocities: 127, 111, 95, 79, 63, 47, 31, 15, with filter cutoff set to 4,000 Hz, and filter resonance at 10 dB.
+All tones should be the same volume, assuming test #13 is passed. Measured at the following velocities: **127**, **111**, **95**, **79**, **63**, **47**, **31**, **15**, with filter cutoff set to 4,000 Hz, and filter resonance at 10 dB.
 
 #### A: default modulator
 
 The result of this test will vary depending on which spec version is implemented by the SoundFont synth:
 
-* **2.01 spec:** should perceive moderate filtering (-2400 cent curve) as the velocity decreases, with a distinct jump when passing over velocity=64 (due to the secondary modulator source=switch).
+* **2.01 spec:** should perceive moderate filtering (-2400 cent curve) as the velocity decreases, with a distinct jump when passing over velocity 64 due to the secondary modulator source=switch.
 * **2.04 spec:** should perceive moderate filtering (-2400 cent curve) as the velocity decreases
 * **Earlier spec versions:** no filtering should occur
 
@@ -167,7 +167,7 @@ The result should be a smooth progression over a wide frequency range for the lo
 
 #### C: old SoundFont 2.0 behavior (SB AWE32/64 and Live!)
 
-On the Sound Blaster Live!, a volume envelope attack of 8 ms or greater enables a velocity-to-FC modulator that reduces the filter cutoff at lower velocities. The same is true on AWE32/64 with volume envelope attack of 7 ms or greater. This test attempts to see if this behavior is emulated. If **Test A** does not result in a progressively filtered sound but **Test C** does, then this old behavior is emulated. If **Test A** sounds filtered, then ignore the results of this test.
+On the Sound Blaster Live!, a volume envelope attack of **8 ms** or greater enables a velocity-to-FC modulator that reduces the filter cutoff at lower velocities. The same is true on AWE32/64 with volume envelope attack of **7 ms** or greater. This test attempts to see if this behavior is emulated. If **Test A** does not result in a progressively filtered sound but **Test C** does, then this old behavior is emulated. If **Test A** sounds filtered, then ignore the results of this test.
 
 #### D: 2.01 spec default modulator deleted from instrument
 
@@ -187,15 +187,15 @@ You will hear either "supported" or "not supported". Strangely, the Sound Blaste
 
 ### Test #17: Reverb
 
-* **Test A:** Instrument-level reverb = 0%, 33.3%, 66.6% and 100%.
-* **Test B:** MIDI CC 91 reverb = 0% (0), 33.3% (42), 66.6% (85) and 100% (127).
-* **Test C:** Both instrument-level and MIDI CC91 reverb = 0%, 33.3%, 66.6% and 100%.
+* **Test A:** Instrument-level reverb = **0%**, **33.3%**, **66.6%** and **100%**.
+* **Test B:** MIDI CC 91 reverb = **0** (0%), **42** (33.3%), **85** (66.6%) and **127** (100%).
+* **Test C:** Both instrument-level and MIDI CC91 reverb = **0%**, **33.3%**, **66.6%** and **100%**.
 
 ### Test #18: Chorus
 
-* **Test A:** Instrument-level chorus = 0%, 33.3%, 66.6% and 100%.
-* **Test B:** MIDI CC 93 chorus = 0% (0), 33.3% (42), 66.6% (85) and 100% (127).
-* **Test C:** Both instrument-level and MIDI CC93 chorus = 0%, 33.3%, 66.6% and 100%.
+* **Test A:** Instrument-level chorus = **0%**, **33.3%**, **66.6%** and **100%**.
+* **Test B:** MIDI CC 93 chorus = **0** (0%), **42** (33.3%), **85** (66.6%) and **127** (100%).
+* **Test C:** Both instrument-level and MIDI CC 93 chorus = **0%**, **33.3%**, **66.6%** and **100%**.
 
 ### Test #19: Sample interpolation quality
 
@@ -203,11 +203,69 @@ This test must be performed by ear. If the sound is grainy, a low quality interp
 
 ### Test #20: Pitch bend
 
-* **Test A:** Default (+/- 2 semitones) --you will hear middle C bend down a whole step and back, then up a whole step and back.
-* **Test B:** Modulator removed (should hear no pitch change)
-* **Test C:** Inverted --you will hear middle C bend up a whole step and back, then down a whole step and back.
+* **Test A:** Default (+/- 2 semitones). You should hear middle C bend down a whole step and back, then up a whole step and back.
+* **Test B:** Modulator removed. You should hear no pitch change.
+* **Test C:** Inverted. You should hear middle C bend up a whole step and back, then down a whole step and back.
 
 ### Test #21: Exclusive class
 
 Very short noise = exclusive class is supported
 Long noise = exclusive class is not supported
+
+### Test #22: Panning
+
+Tests for correct panning behavior when using both mono and stereo samples. Each test will play nine tones progressing from left to right in the stereo field. A mono sample panned fully left (**-50%** internal to the SoundFont) should play only through the left speaker. A stereo sample panned fully left should have the left sample played only through the left speaker and the right channel played centered. This behavior should of course be mirrored when panning to the right (**50%** internally). The stereo sample for this test contains two sine waves an octave apart, the lower tone fully in the left channel and the higher tone fully in the right channel.
+
+Please refer to this chart for the values of the nine tones played in the tests below:
+
+| Test A/C (internal) | Test E (internal) | Test B/D/F (CC10) |
+|:--------------------|:------------------|:------------------|
+| -50%                | -100%             | 0                 |
+| -37.5%              | -75%              | 16                |
+| -25%                | -50%              | 32                |
+| -12.5%              | -25%              | 48                |
+| 0%                  | 0%                | 64                |
+| 12.5%               | 25%               | 80                |
+| 25%                 | 50%               | 96                |
+| 37.5%               | 75%               | 112               |
+| 50%                 | 100%              | 127               |
+
+#### Test A
+
+Mono sine wave using internal pan values **-50%** – **50%**.
+
+* **-50%** and **50%** should result in fully left and right panned samples, respectively.
+
+#### Test B
+
+Mono sine wave using MIDI CC 10 (pan) values **0** – **127**, which should correspond to the results in **Test A** above.
+
+* Note that CC 10 value **127** corresponds to **49.22%** (right) pan, not true **50%**, though some synthesizers may compensate for this. Every other value should create a perfect sonic match with **Test A** above.
+
+#### Test C
+
+Stereo sine waves using internal pan values **-50%** – **50%**.
+
+* At **-50%** (left), you should hear the higher-pitched sine wave (the sample's right channel) playing centered—*not* fully panned left. Panned **50%** (right), it is the lower-pitched sine wave (the sample's left channel) that should now be centered.
+
+#### Test D
+
+Stereo sine waves using MIDI CC 10 (pan) values **0** – **127**, which should correspond to the results in **Test C** above.
+
+* Note that CC 10 value **127** corresponds to **49.22%** (right) pan, not true **50%**, though some synthesizers may compensate for this. Every other value should create a perfect sonic match with **Test C** above.
+
+#### Test E
+
+Stereo sine waves using internal pan values **-100%** – **100%**.
+
+* At **-100%**, both channels of the stereo sample should be fully panned to the left. At **100%**, everything is fully to the right.
+
+#### Test F
+
+By overriding the default CC10-to-pan modulator, it is possible to use MIDI CC 10 to replicate the results from **Test E** above.
+
+* This test should sound identical to **Test E** above (with the aforementioned exception of CC value 127). However, if the SoundFont synth does not support overriding the default CC10-to-pan modulator, then it will sound identical to **Test D** instead.
+
+## Additional Notes
+
+Most of the sine wave tests peak at the same volume, and I have normalized this peak at **-6 dB** in all of the recordings I have provided with this project. Recordings provided by other users may or may not also be normalized in this way. A strange quirk, however, appears in the Sound Blaster recordings, where there are slight volume differences between many of these tests (e.g., the volume envelope test peaks at -5.251 dB, whereas the modulation envelope test peaks at -6 dB). I have scoured both the SoundFont and MIDI file for anything that could be the cause and have come up empty. My best guess as to why this happens is that there is some undefined behavior in the Sound Blaster volume envelope whereby certain parameters can cause an unexpected effect on the sample volume. More tests would need to be developed to find out for sure.
