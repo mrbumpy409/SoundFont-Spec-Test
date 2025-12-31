@@ -91,71 +91,74 @@
        d="m 40.000001,125 h 20 c 0,-20.89639 17.433052,-20 19.999999,-20 h 20 l 20,10 h 20 l 20,10"
        id="path1"
        sodipodi:nodetypes="ccccccc" />
-    <text
-       xml:space="preserve"
-       style="font-size:4.23333px;writing-mode:lr-tb;direction:ltr;fill:none;stroke:#c8ccd4;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
-       x="41.186382"
-       y="99.287476"
-       id="text7"><tspan
-         sodipodi:role="line"
-         id="tspan7"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
-         x="41.186382"
-         y="99.287476">Delay</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:4.23333px;writing-mode:lr-tb;direction:ltr;fill:none;stroke:#c8ccd4;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
-       x="61.550827"
-       y="99.287476"
-       id="text8"><tspan
-         sodipodi:role="line"
-         id="tspan8"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
-         x="61.550827"
-         y="99.287476">Attack</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:4.23333px;writing-mode:lr-tb;direction:ltr;fill:none;stroke:#c8ccd4;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
-       x="81.218597"
-       y="99.287476"
-       id="text9"><tspan
-         sodipodi:role="line"
-         id="tspan9"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
-         x="81.218597"
-         y="99.287476">Hold</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:4.23333px;writing-mode:lr-tb;direction:ltr;fill:none;stroke:#c8ccd4;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
-       x="101.19514"
-       y="99.287476"
-       id="text10"><tspan
-         sodipodi:role="line"
-         id="tspan10"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
-         x="101.19514"
-         y="99.287476">Decay</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:4.23333px;writing-mode:lr-tb;direction:ltr;fill:none;stroke:#c8ccd4;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
-       x="121.23553"
-       y="99.287476"
-       id="text11"><tspan
-         sodipodi:role="line"
-         id="tspan11"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
-         x="121.23553"
-         y="99.287476">Sustain</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:4.23333px;writing-mode:lr-tb;direction:ltr;fill:none;stroke:#c8ccd4;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
-       x="141.21582"
-       y="99.287476"
-       id="text12"><tspan
-         sodipodi:role="line"
-         id="tspan12"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
-         x="141.21582"
-         y="99.287476">Release</tspan></text>
+    <g
+       id="g13">
+      <text
+         xml:space="preserve"
+         style="font-size:4.23333px;writing-mode:lr-tb;direction:ltr;opacity:1;fill:none;stroke:#c8ccd4;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+         x="43.174999"
+         y="99.287476"
+         id="text7"><tspan
+           sodipodi:role="line"
+           id="tspan7"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="43.174999"
+           y="99.287476">Delay</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:4.23333px;writing-mode:lr-tb;direction:ltr;opacity:1;fill:none;stroke:#c8ccd4;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+         x="62.225006"
+         y="99.287476"
+         id="text8"><tspan
+           sodipodi:role="line"
+           id="tspan8"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="62.225006"
+           y="99.287476">Attack</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:4.23333px;writing-mode:lr-tb;direction:ltr;opacity:1;fill:none;stroke:#c8ccd4;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+         x="84.449997"
+         y="99.287476"
+         id="text9"><tspan
+           sodipodi:role="line"
+           id="tspan9"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="84.449997"
+           y="99.287476">Hold</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:4.23333px;writing-mode:lr-tb;direction:ltr;opacity:1;fill:none;stroke:#c8ccd4;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+         x="102.44164"
+         y="99.287476"
+         id="text10"><tspan
+           sodipodi:role="line"
+           id="tspan10"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="102.44164"
+           y="99.287476">Decay</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:4.23333px;writing-mode:lr-tb;direction:ltr;opacity:1;fill:none;stroke:#c8ccd4;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+         x="120.96246"
+         y="99.287476"
+         id="text11"><tspan
+           sodipodi:role="line"
+           id="tspan11"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="120.96246"
+           y="99.287476">Sustain</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:4.23333px;writing-mode:lr-tb;direction:ltr;opacity:1;fill:none;stroke:#c8ccd4;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+         x="140.54166"
+         y="99.287476"
+         id="text12"><tspan
+           sodipodi:role="line"
+           id="tspan12"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+           x="140.54166"
+           y="99.287476">Release</tspan></text>
+    </g>
   </g>
 </svg>
