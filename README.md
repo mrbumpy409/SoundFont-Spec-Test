@@ -1,7 +1,7 @@
 # SoundFont Spec Implementation Test v3.1
 A specification-compliance test for SoundFont synthesizers.
 
-*Updated 12/29/25 by S. Christian Collins*
+*Updated 12/31/25 by S. Christian Collins*
 
 _**HELP WANTED!** If someone could send me audio of this test recorded on a Sound Blaster Live! with reverb and chorus enabled, I would be much obliged. You can upload your recording to [this bug report](https://github.com/mrbumpy409/SoundFont-Spec-Test/issues/2)._
 
@@ -17,23 +17,19 @@ To run the test, load the accompanying SoundFont bank into your SoundFont synth 
 
 ### Test #1: Volume envelope
 
-This test uses all six envelope stages, each lasting exactly 1 second. The stages are *delay*, *attack*, *hold*, *decay*, *sustain*, and *release*. The attack should be a convex curve, while the remaining envelope stages should all be linear. Note that viewing these stages on a waveform view in dB, the attack will appear linear, and the other phases will appear concave. The test starts with a click. You should hear the note's volume change according to the following envelope shape:
+This test uses all six envelope stages, each lasting exactly 1 second\*. The stages are *delay*, *attack*, *hold*, *decay*, *sustain*, and *release*. The attack should be a convex curve, while the remaining envelope stages should all be linear. Note that viewing these stages on a waveform view in dB, the attack will appear linear, and the other phases will appear concave. The test starts with a click. You should hear the note's volume change according to the following envelope shape (as viewed on a dB scale):
 
-            ____
-           /    \
-          /      \____
-         /            \
-    ____/              \
+![image](images/sf2-envelope.svg)
+
+_\* – The decay speed is based on the time it would take to decay from **0 dB** to **-96 dB**, but since the sustain level is **-12 dB**, the time spent actually decaying the sound is much shorter than 1 second._
 
 ### Test #2: Modulation envelope
 
-This test uses all six envelope stages, each lasting exactly 1 second. The stages are *delay*, *attack*, *hold*, *decay*, *sustain*, and *release*. The attack should be a convex curve, while the remaining envelope stages should all be linear. You should hear the note's pitch change according to the following envelope shape:
+This test uses all six envelope stages, each lasting exactly 1 second\*. The stages are *delay*, *attack*, *hold*, *decay*, *sustain*, and *release*. The attack should be a convex curve, while the remaining envelope stages should all be linear. You should hear the note's pitch change according to the following envelope shape:
 
-            ____
-           /    \
-          /      \____
-         /            \
-    ____/              \
+![image](images/sf2-envelope.svg)
+
+_\* – The decay speed is based on the time it would take to decay from **100%** to **0%** pitch modulation, but since the sustain level is **50%**, the time spent actually decaying the sound is only half a second._
 
 ### Test #3: Key number to decay
 
@@ -149,7 +145,7 @@ Measured at the following velocities: **127**, **111**, **95**, **79**, **63**, 
 * **Test D:** 96 dB linear
 * **Test E:** modulator deleted from the instrument (all tones should be the same volume)
 
-### Test #14: Velocity to initial filter cutoff curve
+### Test #14: Velocity to filter cutoff curve
 
 All tones should be the same volume, assuming test #13 is passed. Measured at the following velocities: **127**, **111**, **95**, **79**, **63**, **47**, **31**, **15**, with filter cutoff set to 4,000 Hz, and filter resonance at 10 dB.
 
@@ -157,11 +153,19 @@ All tones should be the same volume, assuming test #13 is passed. Measured at th
 
 The result of this test will vary depending on which spec version is implemented by the SoundFont synth:
 
-* **2.01 spec:** should perceive moderate filtering (-2400 cent curve) as the velocity decreases, with a distinct jump when passing over velocity 64 due to the secondary modulator source=switch.
-* **2.04 spec:** should perceive moderate filtering (-2400 cent curve) as the velocity decreases
-* **Earlier spec versions:** no filtering should occur
+* **2.01 spec:** You should hear no filtering as the velocity decreases from **127** to **64**, and then a sudden jump to **-1200** cents filtering when the velocity reaches **63**. From there, the filtering gradually increases as you approach velocity **0** to a total of **-2400** cents. This sudden jump in filtering is caused by the default modulator's use of a negative unipolar switch as the secondary modulator source.
 
-Because of this inconsistent behavior and the different way each version of this modulator must be canceled/overridden by the SoundFont designer, many SoundFont synths including FluidSynth and BASSMIDI choose not to implement this default modulator.
+  This version of the default velocity-to-filter-cutoff modulator was a mistake. From the description in section 8.4.2 of the SoundFont 2.01 spec, it is clear the developers were trying to recreate the behavior of the Sound Blaster AWE32/Live! filter whereby gradual filtering would occur from velocities **127** through **64**, and then *no further filtering* would occur below velocity **64**. However, this desired behavior is not possible with the described model, and is actually not possible at all using a negative unipolar primary modulator source. After the hardware implementation had been created (E-MU APS, Sound Blaster Audigy series), the developers realized their mistake and redesigned the default modulator for the SoundFont 2.04 spec.
+
+* **2.04 spec:** There shuld be moderate filtering (-2400 cent curve) as the velocity decreases from **127** to **0** with no sudden jump in the middle.
+
+* **Earlier spec versions:** You should hear no filtering. In earlier spec versions, filtering only occurs when the volume envelope attack is at **7 ms** or higher (**8 ms** on the Sound Blaster Live!), and thus won't be triggered in this test.
+
+Because of this inconsistent behavior and the different way each version of this modulator must be canceled/overridden by the SoundFont designer, many SoundFont synths including FluidSynth and BASSMIDI choose not to implement this default modulator at all. Regardless, I encourage all SoundFont designers to cancel both 2.01 and 2.04 versions of this modulator in their instruments to ensure consistent filter behavior when played in different synthesizers. Canceling these modulators is done at the instrument level (not preset), and in [Polyphone](https://www.polyphone.io/) looks like this (2.01 modulator on top, 2.04 modulator on bottom):
+
+![image](images/default-fc-modulator-cancel.png)
+
+If you wish to use velocity-based filtering, then change the amount on the 2.04 modulator as desired (default = **-2400 cents**).
 
 #### B: -7200 cent curve
 
@@ -169,7 +173,7 @@ The result should be a smooth progression over a wide frequency range for the lo
 
 #### C: old SoundFont 2.0 behavior (SB AWE32/64 and Live!)
 
-On the Sound Blaster Live!, a volume envelope attack of **8 ms** or greater enables a velocity-to-FC modulator that reduces the filter cutoff at lower velocities. The same is true on AWE32/64 with volume envelope attack of **7 ms** or greater. This test attempts to see if this behavior is emulated. If **Test A** does not result in a progressively filtered sound but **Test C** does, then this old behavior is emulated. If **Test A** sounds filtered, then ignore the results of this test.
+On the Sound Blaster Live!, a volume envelope attack of **8 ms** or greater enables a velocity-to-FC modulator that reduces the filter cutoff from velocities **127** to **64**, but then no further filter cutoff reductions happen through velocities **63** to **0**. The same is true on AWE32/64 with volume envelope attack of **7 ms** or greater. This test attempts to see if this behavior is emulated. If **Test A** does not result in a progressively filtered sound but **Test C** does, then this old behavior is emulated. If **Test A** sounds filtered, then ignore the results of this test.
 
 #### D: 2.01 spec default modulator deleted from instrument
 
